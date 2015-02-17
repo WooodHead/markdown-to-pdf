@@ -1,0 +1,76 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+html {
+  font-family: "Open Sans";
+  width: 100%;
+  height: 99%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+#editor, #overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+}
+#go, #credits {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-color: #7099ff;
+  -moz-border-radius: 28px;
+  -webkit-border-radius: 28px;
+  border-radius: 28px;
+  border: 1px solid #7099ff;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: arial;
+  font-size: 17px;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #7099ff;
+  z-index: 1111;
+}
+#credits {
+  left: 10px;
+}
+#overlay {
+  z-index: 10;
+}
+#modal {
+  position: absolute;
+  background-color: white;
+  top: 100px;
+  left: 50%;
+  width: 400px;
+  margin-left: -230px;
+  margin-bottom: 30px;
+  padding: 30px;
+  word-wrap: break-word;
+  z-index: 20;
+}
+#close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.blue {
+  background-color: #D4F1FF;
+}
+.white {
+  background-color: white;
+}
+.gray {
+  background-color: rgba(160, 160, 160, 0.3);
+}
+.hidden {
+  display: none;
+}

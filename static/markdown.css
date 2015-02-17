@@ -1,0 +1,238 @@
+/*font*/
+@font-face {
+  font-family: "Open Sans";
+  src: 
+    url("open-sans/OpenSans-Regular.ttf") format("truetype");
+}
+
+/*phantomjs*/
+* {
+  overflow: visible !important; // forces a built-in PDF rendering gotcha in WebKit so that images never span 2 pages
+}
+img {
+  margin-top:20px;
+  max-width: 92%; // images will never overflow off the right hand side of a page
+}
+.page-break {
+  display: block;
+  page-break-before: always; // force a page break
+}
+/*markdown*/
+html, body {
+  margin:auto;
+  max-width:45em;
+  background:#fefefe;
+}
+body {
+  font: 0.8em "Open Sans", Palatino, Times;
+  color: #333;
+  line-height: 1.4;
+  text-align: justify;
+}
+header, nav, article, footer {
+  width: 700px;
+  margin:0 auto;
+}
+article {
+  margin-top: 4em;
+  margin-bottom: 4em;
+  min-height: 400px;
+}
+footer {
+  margin-bottom:50px;
+}
+video {
+  margin: 2em 0;
+  border:1px solid #ddd;
+}
+
+nav {
+  font-size: .7em;
+  font-style: italic;
+  border-bottom: 1px solid #ddd;
+  padding: 1em 0;
+}
+nav p {
+  margin: 0;
+}
+
+/* Typography
+-------------------------------------------------------- */
+
+h1 {
+  margin-top: 0;
+  font-weight: normal;
+}
+h2 {
+  font-weight: normal;
+}
+h3 {
+  font-weight: normal;
+  font-style: italic;
+  margin-top:3em;
+}
+p {
+  margin-top:0;
+  -webkit-hypens:auto;
+  -moz-hypens:auto;
+  hyphens:auto;
+}
+ul {
+  list-style: square;
+  padding-left:1.2em;
+}
+ol {
+  padding-left:1.2em;
+}
+blockquote {
+  margin-left: 1em;
+  padding-left: 1em;
+  border-left: 1px solid #ddd;
+}
+pre {
+  background: #EFEFEF;
+  padding: 10px;
+  border-radius: 10px;
+  word-break: break-word;
+}
+code {
+  font-family: monospace, serif;
+  font-size: .9em;
+}
+a {
+  color: #2484c1;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a img {
+  border:none;
+}
+h1 a, h1 a:hover {
+  color: #333;
+  text-decoration: none;
+}
+hr {
+  color : #ddd;
+  height : 1px;
+  margin: 2em 0;
+  border-top : solid 1px #ddd;
+  border-bottom : none;
+  border-left: 0;
+  border-right: 0;
+}
+p#heart{
+  font-size: 1em;
+  line-height: 1;
+  text-align: center;
+  color: #ccc;
+}
+.red {
+  color:#B50000;
+}
+
+p > code, p > a {
+  /* fix space before inline code */
+  padding-left: 4px;
+}
+
+/* Home Page
+--------------------------- */
+
+body#index li {
+  margin-bottom: 1em;
+}
+
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* Tomorrow Comment */
+.hljs-comment {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.ruby .hljs-constant,
+.xml .hljs-tag .hljs-title,
+.xml .hljs-pi,
+.xml .hljs-doctype,
+.html .hljs-doctype,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.ruby .hljs-class .hljs-title,
+.css .hljs-rules .hljs-attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.ruby .hljs-symbol,
+.xml .hljs-cdata {
+  color: #718c00;
+}
+
+/* Tomorrow Aqua */
+.hljs-title,
+.css .hljs-hexcolor {
+  color: #3e999f;
+}
+
+/* Tomorrow Blue */
+.hljs-function,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .hljs-function .hljs-title,
+.ruby .hljs-title .hljs-keyword,
+.perl .hljs-sub,
+.javascript .hljs-title,
+.coffeescript .hljs-title {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.javascript .hljs-function {
+  color: #8959a8;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+  -webkit-text-size-adjust: none;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}

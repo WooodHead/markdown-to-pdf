@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>markdown to pdf</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <div id="overlay" class="hidden"></div>
+
+    <div id="editor"># Convert markdow to pdf
+
+## Use the online editor
+
+* write your markdown directly here
+* or drag and drop a markdown file directly here
+
+then hit the "Convert to PDF!" button!
+
+We use a beautiful stylesheet, so your markdown text will look amazing!
+
+
+## Use the API
+
+Or you can convert from the command line using our API:
+example with curl:
+```bash
+# convert doc.md to doc.pdf
+curl --data-urlencode "data=`cat doc.md`" "https://markdown-to-pdf.herokuapp.com" > doc.pdf
+```
+    </div>
+
+    <button id="credits">About</button>
+
+    <form id="submit-form" action="/" method="POST">
+      <textarea id="markdown-content" name="data"></textarea>
+      <input type="submit" id="go">Convert to PDF!</input>
+    </form>
+
+    <div id="modal" class="hidden">
+      <span id="close">X</span>
+      <h3>Credits</h3>
+      <p>Markdown to HTML conversion using using <a href="https://github.com/chjj/marked" target="_blank">Marked</a></p>
+      <p>HTML to PDF conversion using using <a href="http://wkhtmltopdf.org/" target="_blank">wkhtmltopdf</a></p>
+      <p>Syntax highlighting using <a href="http://highlightjs.org/" target="_blank">highlight.js</a></p>
+      <p>PDF style using <a href="https://github.com/mixu/markdown-styles" target="_blank">markdown-styles</a></p>
+      <h3>Issues</h3>
+      <p>Please report any issues on <a href="https://github.com/romgain/markdown-to-pdf" target="_blank">Github</a></p>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.8/ace.js"></script>
+
+    <script>
+      (function () {
+        // set up editor
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/tomorrow");
+        editor.getSession().setMode("ace/mode/markdown");
+
+        // set up modal dialog
+        var overlay = document.getElementById("overlay");
+        var modal = document.getElementById("modal");
+        document.getElementById("credits").addEventListener("click", function () {
+          overlay.className = "gray";
+          modal.className = "";
+        });
+        document.getElementById("close").addEventListener("click", function () {
+          overlay.className = "hidden";
+          modal.className = "hidden";
+        });
+
+        // link the editor's content to the form content before submit
+        var textArea = document.getElementById("markdown-content");
+        document.getElementById("submit-form").addEventListener("submit", function () {
+          textArea.value = editor.getValue();
+        });
+
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<script>
+    window.onload = function() {
+        var vars = {};
+        var x = document.location.search.substring(1).split('&');
+        for (var i in x) {
+            var z = x[i].split('=', 2);
+            vars[z[0]] = unescape(z[1]);
+        }
+    
+        //if current page number == last page number
+        //if (vars['page'] == vars['topage']) {
+            document.querySelectorAll('.extra')[0].textContent = vars['page'] + '/' + vars['topage'];
+        //}
+    };
+</script>
+
+<style>
+    .extra {
+        font-family: "Open Sans";
+        font-size: 11px;
+        color: #6C6C6C;
+        text-align: right;
+        margin-bottom: 80px;
+    }
+</style>
+
+<div class="extra"></div>
