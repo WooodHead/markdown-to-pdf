@@ -20,3 +20,6 @@ WKHTMLTOPDF_BIN to the path to the wkhtmltopdf binary.
 
 ## License
 BSD
+
+## Demo
+A demo is available on heroku: [markdown-to-pdf.herokuapp.com](http://markdown-to-pdf.herokuapp.com).
