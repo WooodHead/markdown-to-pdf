@@ -2,6 +2,8 @@
   "name": "markdown-to-pdf",
   "version": "0.0.0",
   "description": "API to convert markdown files to pdf",
+  "author": "Romain Bertrand",
+  "license": "BSD",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.12.0",
@@ -19,6 +21,12 @@
     "markdown",
     "pdf"
   ],
-  "author": "Romain Bertrand",
-  "license": "BSD"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romgain/markdown-to-pdf"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.5.x"
+  }
 }
