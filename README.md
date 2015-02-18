@@ -4,9 +4,10 @@
 
 ## Features
 
-* convert markdown to pdf using [wkhtmltopdf](http://wkhtmltopdf.org/)
+* convert markdown to pdf using [marked](https://github.com/chjj/marked) and [wkhtmltopdf](http://wkhtmltopdf.org/)
 * with a beautiful [style](https://github.com/mixu/markdown-styles)
 * [syntax highlighting](https://highlightjs.org/) for code blocks
+* online editor: [Ace](http://ace.c9.io/)
 
 ## Run / Deploy
 ```
