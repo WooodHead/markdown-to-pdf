@@ -33,7 +33,7 @@ curl --data-urlencode "data=`cat doc.md`" "https://markdown-to-pdf.herokuapp.com
     <button id="credits">About</button>
 
     <form id="submit-form" action="/" method="POST">
-      <textarea id="markdown-content" name="data"></textarea>
+      <textarea id="markdown-content" name="data" class="hidden"></textarea>
       <input type="submit" id="go">Convert to PDF!</input>
     </form>
 
@@ -76,6 +76,41 @@ curl --data-urlencode "data=`cat doc.md`" "https://markdown-to-pdf.herokuapp.com
         document.getElementById("submit-form").addEventListener("submit", function () {
           textArea.value = editor.getValue();
         });
+
+        // Init the dropzone
+        var editorContainer = document.getElementsByClassName("ace_content")[0];
+        if (window.FileReader) {
+          editorContainer.addEventListener("dragenter", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.body.className = "blue";
+            editorContainer.className = "blue";
+          });
+          editorContainer.addEventListener("dragover", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.body.className = "blue";
+            editorContainer.className = "blue";
+          });
+          editorContainer.addEventListener("drop", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.body.className = "white";
+            editorContainer.className = "white";
+            var data = e.dataTransfer;
+            var reader = new FileReader();
+            reader.readAsText(data.files[0]);
+            reader.addEventListener("loadend", function (e, file) {
+              editor.setValue(this.result);
+            });
+          });
+          editorContainer.addEventListener("dragleave", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.body.className = "white";
+            editorContainer.className = "white";
+          });
+        }
 
       })();
     </script>
