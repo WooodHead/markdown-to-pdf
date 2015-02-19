@@ -147,6 +147,7 @@ body#index li {
 /* Styling tables */
 table {
   border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
 table td, table th {
