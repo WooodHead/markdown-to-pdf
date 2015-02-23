@@ -41,6 +41,9 @@ app.post("/", function (req, res) {
     html += "</body>" +
       "</html>";
 
+    // set the download file name
+    res.setHeader("Content-disposition", "attachment; filename=document.pdf");
+
     wkhtmltopdf(html, {
       footerHtml: "static/footer.html",
       userStyleSheet: "static/markdown.css",
