@@ -19,9 +19,11 @@ body {
   left: 0;
   font-size: 16px;
 }
+#go {
+  right: 10px;
+}
 #go, #credits {
   position: fixed;
-  right: 10px;
   bottom: 10px;
   background-color: #7099ff;
   -moz-border-radius: 28px;
