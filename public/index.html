@@ -34,6 +34,7 @@ curl --data-urlencode "data=`cat doc.md`" "https://markdown-to-pdf.herokuapp.com
 
     <form id="submit-form" action="/" method="POST">
       <textarea id="markdown-content" name="data" class="hidden"></textarea>
+      <input type="hidden" id="filename" name="filename" value="document.pdf">
       <input type="submit" id="go" value="Convert to PDF!">
     </form>
 
@@ -99,11 +100,16 @@ curl --data-urlencode "data=`cat doc.md`" "https://markdown-to-pdf.herokuapp.com
             document.body.className = "white";
             editorContainer.className = "white";
             var data = e.dataTransfer;
-            var reader = new FileReader();
-            reader.readAsText(data.files[0]);
-            reader.addEventListener("loadend", function (e, file) {
-              editor.setValue(this.result);
-            });
+            if (data.files && data.files.length === 1) {
+              var filename = data.files[0].name;
+              filename = filename.replace(/\.md$/, ".pdf");  // replace extension
+              document.getElementById("filename").value = filename;
+              var reader = new FileReader();
+              reader.readAsText(data.files[0]);
+              reader.addEventListener("loadend", function (e, file) {
+                editor.setValue(this.result);
+              });
+            }
           });
           editorContainer.addEventListener("dragleave", function (e) {
             e.preventDefault();

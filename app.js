@@ -42,7 +42,11 @@ app.post("/", function (req, res) {
       "</html>";
 
     // set the download file name
-    res.setHeader("Content-disposition", "attachment; filename=document.pdf");
+    var filename = req.body.filename;
+    if (!filename) {
+      filename = "document.pdf";
+    }
+    res.setHeader("Content-disposition", "attachment; filename=" + filename);
 
     wkhtmltopdf(html, {
       footerHtml: "static/footer.html",
